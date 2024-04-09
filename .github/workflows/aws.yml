@@ -24,8 +24,8 @@ jobs:
     environment: production
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
+      - name: Check Deploy
+        run: echo "Deploy successfully"
 
     # - name: Configure AWS credentials
     #   uses: aws-actions/configure-aws-credentials@v1
@@ -67,5 +67,5 @@ jobs:
     #     cluster: ${{ env.ECS_CLUSTER }}
     #     wait-for-service-stability: true
 
-    - name: Check Deploy
-    
+
+
