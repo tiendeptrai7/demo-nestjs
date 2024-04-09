@@ -17,20 +17,40 @@ permissions:
   contents: read
 
 jobs:
-  deploy:
-    name: Deploy
+
+  build:
+    name: Build
     runs-on: ubuntu-latest
     environment: production
 
     steps:
       - name: Check Build
         run: echo "Step Build"
+        needs: job1
 
       - name: Check Test
         run: echo "Step Test"
          
       - name: Check Deploy
         run: echo "Step Deploy"
+
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    environment: production
+    needs: build
+
+    steps:
+      - name: Check Build
+        run: echo "Step Build"
+        needs: job1
+
+      - name: Check Test
+        run: echo "Step Test"
+         
+      - name: Check Deploy
+        run: echo "Step Deploy"
+
 
     # - name: Configure AWS credentials
     #   uses: aws-actions/configure-aws-credentials@v1
