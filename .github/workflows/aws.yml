@@ -43,7 +43,6 @@ jobs:
     steps:
       - name: Check Build
         run: echo "Step Build"
-        needs: job1
 
       - name: Check Test
         run: echo "Step Test"
